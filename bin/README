@@ -1,0 +1,73 @@
+
+-------------------------------------------------
+create_matching_3H_table.sql
+-------------------------------------------------
+
+   creation de la table postgresql "transect_besttrack_matching_3H"
+   qui va accueillir le nom des transects qui se situent à moins de 
+   trois heures de distance temporelle d'une dépression
+
+
+-------------------------------------------------
+bestTrack_transect-pre_matching_3H.py
+bestTrack_transect-pre_matching_3H.sh
+-------------------------------------------------
+
+   le script BASH lance le programme Python qui permet de remplir la table
+   "transect_besttrack_matching_3H" avec les transects et les dépressions qui 
+   se trouvent à moins de 3 heures de ditance temporelle 
+
+-------------------------------------------------
+create_matching_1000km_from_3H_table.sql
+-------------------------------------------------
+
+   creation de la table postgresql "transect_besttrack_1000km_from_3H"
+   qui va accueillir le nom des transects qui se situent à moins de 1000km
+   ET à moins de trois heures d'une dépression
+
+-------------------------------------------------
+bestTrack_transect-pre_matching_1000km_from_3H.py
+bestTrack_transect-pre_matching_1000km_from_3H.sh
+-------------------------------------------------
+
+   le script BASH lance le programme Python qui permet de remplir la table
+   "transect_besttrack_matching_1000km_from_3H" avec les transects et les 
+   dépressions qui se trouvent à moins de 3 heures de ditance temporelle 
+   ET à moins de 1000km.
+   Il s'agit d'un filtre des données de la table "transect
+
+-------------------------------------------------
+create_transect_besttrack_matching_table.sql
+-------------------------------------------------
+
+   creation de la table postgresql "transect_besttrack_matching_table"
+   qui va accueillir le nom des transects mais aussi les points des transects
+   qui se situent à moins de trois heures de distance temporelle d'une dépression
+   ET à moins de 1000km, ainsi que les données cycloniques interpolées en ces
+   points
+
+-------------------------------------------------
+bestTrack_transect-matching.v2.py
+bestTrack_transect-matching.v2.sh
+-------------------------------------------------
+
+   le script BASH lance le programme Python qui permet de remplir la table
+   "transect_besttrack_matching_table" 
+
+-------------------------------------------------
+bestTrack_transect-matching.one_by_one.py
+bestTrack_transect-matching.one_by_one.sh
+-------------------------------------------------
+
+   variante des programmes précédants où cahque tâche lancé
+   s'occupe d'un seul enregistrement de la table "transect_besttrack_matching_1000km_3H"
+   En cas de plantage de la machine, on ne perd qu'un seul enregistrement et non
+   la totalité du traitement
+
+-------------------------------------------------
+add_isobare_bestTrack_transect-matching.py
+-------------------------------------------------
+
+   ajoute le paramètre "rayon de la dernière isobare fermée" aux colonnes
+   de la table"transect_besttrack_matching_table" et produit la
+   table "transect_besttrack_matching_with_isobare"
